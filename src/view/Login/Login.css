@@ -1,0 +1,371 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.form-wrapper {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.input-field {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0.5rem 0rem;
+}
+.input-field label {
+  color: black;
+  font-family: "Inter";
+  font-style: 600;
+  font-size: 1.2vw;
+  align-self: center;
+}
+.input-field input {
+  align-self: center;
+  width: 24.3vw;
+  padding: 0.75rem;
+  border-radius: 5px;
+  outline: none;
+  background: #ffff;
+  margin-top: 0.5rem;
+  color: #000;
+  font-family: inherit;
+}
+input:focus {
+  outline: none;
+  border: none;
+}
+
+.form-wrapper button,
+.main-button {
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  width: 24.3vw;
+  height: 4vw;
+  cursor: pointer;
+
+  background: #1F1D61;
+  border-radius: 6px;
+  border: none;
+  margin-top: 40px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.1vw;
+  line-height: 1.4vw;
+  padding: 1vw 0;
+  color:white
+}
+
+.bottom-message {
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  margin-top: 2rem;
+}
+.bottom-message h5 {
+  font-weight: 400;
+}
+.bottom-message h5 a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.signupcontainer {
+  position: relative;
+  display: flex;
+}
+.col1signup {
+  /* position: relative; */
+  width: 50%;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  padding: 152px 132px;
+}
+.signupform {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background:  rgba(164, 162, 201, 0.5);
+  width: fit-content;
+  height: fit-content;
+  padding: 5.5vh;
+  border-radius: 6px;
+}
+.signupform > h2,
+p {
+  background-color: transparent;
+  text-align: left;
+}
+.signupform > h2 {
+  margin-bottom: 5px;
+  font-family: "Inter" !important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.2vw;
+  line-height: 3vw;
+  /* identical to box height, or 130% */
+
+  /* Heading */
+
+  color: #212b27;
+}
+.signupform > p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.1vw;
+  line-height: 2vw;
+
+  /* Paragraph */
+  width: fit-content;
+  color: #32403b;
+  text-align: left;
+}
+.inputphone {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 24.3vw;
+  height: 4vw;
+  margin: 0;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+.inputphone > .hr {
+  border-left: 2px solid black;
+  height: 3vw;
+  padding-left: 5px;
+}
+
+.phonenumberinput {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.1vw;
+  line-height: 1.4vw;
+  /* identical to box height, or 130% */
+
+  color: rgba(0, 0, 0, 0.5);
+}
+.inputphone > img,
+.hr {
+  padding: 0 1vw;
+}
+.inputphone > img {
+  object-fit: contain;
+}
+.inputphone > input {
+  border: none;
+}
+.inputphone > input:focus {
+  outline: none;
+}
+.signupform > button {
+  width: 24.3vw;
+  height: 4vw;
+  background: #1F1D61;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
+  margin-top: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.1vw;
+  line-height: 1.4vw;
+  padding: 1vw 0;
+  /* identical to box height, or 130% */
+}
+.signupform > .check {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1vw;
+  line-height: 1.5vw;
+  /* identical to box height, or 130% */
+
+  text-align: center;
+  padding-left: 80px;
+  padding-top: 20px;
+  /* Paragraph */
+
+  color: #32403b;
+}
+.signupform > .check > span {
+  color: #1F1D61;
+  /* text-decoration: underline; */
+  border-bottom: 1px solid #1F1D61;
+  cursor: pointer;
+}
+.col2signup {
+  position: relative;
+  width: 50%;
+  /* height: 100vh; */
+}
+.col2signup:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  background-blend-mode: hard-light;
+  z-index: 1;
+}
+
+.col2signup > img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.col2signup > .centered {
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  flex-direction: column;
+  position: absolute;
+  margin-top:15rem;
+  z-index: 2;
+  background: transparent;
+  color: #ffffff !important;
+  width: 100%;
+}
+.col2signup > .centered > p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.3vw;
+  line-height: 2vw;
+  width: 100%;
+  color: white !important;;
+  /* or 178% */
+
+  text-align: center;
+  font-feature-settings: "salt" on, "liga" off;
+}
+.col2signup > .centered > h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 3vw;
+  line-height: 3vw;
+  width: 100%;
+  /* identical to box height, or 135% */
+
+  text-align: center;
+  font-feature-settings: "salt" on, "liga" off;
+}
+
+@media (max-width: 769px) {
+  .signupform > button {
+    cursor: pointer;
+
+    margin-top: 20px;
+  }
+  .signupform > .inputphone {
+    height: 6vw;
+  }
+}
+@media (max-width: 500px) {
+  .signupform {
+    width: 100vw;
+    height: fit-content;
+  }
+  .signupform h2 {
+    font-size: 5vw;
+    line-height: 3vw;
+  }
+  .signupform p {
+    font-size: 3vw;
+    line-height: 4vw;
+    padding-top: 10px;
+  }
+  .signupform .inputphone {
+    width: 60vw;
+    height: 100px;
+  }
+  .signupform .inputphone > input {
+    height: 35px;
+    font-size: 2vw;
+  }
+  .signupform > button {
+    padding: 15px;
+    width: 60vw;
+    font-size: 2vw;
+    cursor: pointer;
+
+    text-align: center;
+  }
+  .col2signup {
+    display: none;
+  }
+  .col1signup {
+    max-width: 80vw;
+    height: 60vh;
+    padding: 0;
+  }
+  .signupcontainer {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    justify-content: center;
+    height: fit-content;
+  }
+  #check {
+    font-size: 2vw;
+    line-height: 3vw;
+    padding-left: 50;
+    width: fit-content;
+    text-align: center;
+  }
+  .signupcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  .col1signup {
+    /* margin-top: 20vh; */
+    align-items: center;
+  }
+  .signupform {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 30px;
+  }
+  .signupform > h2 {
+    font-size: 4vw;
+  }
+  .signupform > p {
+    font-size: 2.4vw;
+  }
+  .signupform > .inputphone {
+    height: fit-content;
+    display: flex;
+  }
+  .signupform > .inputphone > .phonenumberinput {
+    width: max-content;
+  }
+  .inputphone > .hr {
+    display: none;
+  }
+}
