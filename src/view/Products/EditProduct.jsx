@@ -124,6 +124,7 @@ const EditProduct = () => {
   };
 
   const handleCategory = (e) => {
+    setproductData({ ...productData, category: e.value });
     const Suboptions = subcategories.subCategories.filter(
       (i) => i.category_name._id === e.value
     );
@@ -299,6 +300,7 @@ const EditProduct = () => {
                   classNamePrefix="select"
                   placeholder="Category"
                   onChange={handleCategory}
+                  required
                 />
                 {/* <small className="text-primary">This field is required</small> */}
               </Grid>
@@ -319,6 +321,7 @@ const EditProduct = () => {
                   classNamePrefix="select"
                   placeholder="SubCategory"
                   onChange={handleSubCategory}
+                  required
                 />
                 {/* <small className="text-primary">This field is required</small> */}
               </Grid>

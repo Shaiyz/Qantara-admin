@@ -87,7 +87,7 @@ const SubCategories = () => {
     { field: "id", title: "S#", width: 200, sortable: false },
     {
       field: "name",
-      title: "Category Name",
+      title: "Sub Category Name",
       sortable: false,
       width: 630,
     },

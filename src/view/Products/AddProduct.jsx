@@ -15,11 +15,41 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
+
+const notify = () => toast("Product Added Successfully");
+
 const AddProduct = () => {
   const classes = useStyles();
+
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+
+  const dispatch = useDispatch();
+  const forms = useRef(null);
+  const [img, setImg] = useState("");
+  const [images, setimages] = useState([]);
+  const [productImages, setProductImages] = useState(["", "", "", "", "", ""]);
   const [categories, setCategories] = useState([]);
+  const [subcategories, setSubCategories] = useState([]);
+  const initialState = {
+    skuName: "",
+    skuprice: "",
+    category: "",
+    sales_tax: "",
+    skuTag: "",
+    stockQty: "",
+    productDescription: "",
+  };
+  const [productData, setproductData] = useState(initialState);
+  const { skuName, skuprice, sales_tax, productDescription } = productData;
+  const [tags, settags] = useState([]);
+
   useEffect(() => {
     fetchCategory();
+    fetchSubCategory();
   }, []);
 
   const fetchCategory = async () => {
@@ -36,32 +66,20 @@ const AddProduct = () => {
       console.log(err);
     }
   };
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
 
-  const dispatch = useDispatch();
-  const forms = useRef(null);
-  const [img, setImg] = useState("");
-  const [images, setimages] = useState([]);
-  const [productImages, setProductImages] = useState(["", "", "", "", "", ""]);
-
-  const initialState = {
-    skuName: "",
-    skuprice: "",
-    category: "",
-    sales_tax: "",
-    skuTag: "",
-    stockQty: "",
-    productDescription: "",
+  const fetchSubCategory = async () => {
+    try {
+      const {
+        data: { data },
+      } = await backend.get("/subcategory");
+      setSubCategories({
+        options: null,
+        subCategories: data,
+      });
+    } catch (err) {
+      fetchSubCategory();
+    }
   };
-  const [productData, setproductData] = useState(initialState);
-  const { skuName, skuprice, sales_tax, productDescription } = productData;
-  const [tags, settags] = useState([]);
-
-  const notify = () => toast("Product Added Successfully");
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -70,17 +88,30 @@ const AddProduct = () => {
 
   const handleCategory = (e) => {
     setproductData({ ...productData, category: e.value });
+    const Suboptions = subcategories.subCategories.filter(
+      (i) => i.category_name._id === e.value
+    );
+    setSubCategories({
+      ...subcategories,
+      options: Suboptions.map((i) => {
+        return { value: i._id, label: i.subcategory_name };
+      }),
+    });
   };
+
+  const handleSubCategory = (e) => {
+    setproductData({ ...productData, subCategory: e.value });
+  };
+
   const handleChangeInputFile = (e, i) => {
     let imagess = [...images];
     imagess[i] = e.target.files[0];
     setimages(imagess);
   };
+
   const handleChangeTag = (e) => {
     settags(e);
-
     const arr = e.map((i) => i.value);
-
     setproductData({ ...productData, skuTag: arr });
   };
 
@@ -94,6 +125,7 @@ const AddProduct = () => {
           product_name: productData.skuName,
           product_category: productData.category,
           product_tags: productData.skuTag,
+          product_subcategory: productData.subCategory,
           product_description: productData.productDescription,
           product_images: productImages.map((i) => ({
             image: i,
@@ -114,7 +146,6 @@ const AddProduct = () => {
           error.response ? error.response.data.message : error.message
         );
       } finally {
-        // dispatch(global_actions.loading(false));
       }
     }
   };
@@ -231,25 +262,25 @@ const AddProduct = () => {
                 {/* <small className="text-primary">This field is required</small> */}
               </Grid>
               <br />
+
               <Grid item xs={12} md={12} lg={12}>
                 <Select
                   value={
-                    productData?.category && categories?.length
-                      ? categories.filter(
-                          (x) => x.value === productData?.category
+                    productData?.subCategory && subcategories?.length
+                      ? subcategories.options.filter(
+                          (x) => x.value === productData?.subCategory
                         )
                       : []
                   }
-                  options={categories}
-                  name="category"
+                  options={subcategories.options}
+                  name="subcategory"
                   className="basic-multi-select"
                   classNamePrefix="select"
-                  placeholder="Category"
-                  onChange={handleCategory}
+                  placeholder="SubCategory"
+                  onChange={handleSubCategory}
                 />
                 {/* <small className="text-primary">This field is required</small> */}
               </Grid>
-
               <br />
 
               <Grid item xs={12} md={12} lg={12}>
