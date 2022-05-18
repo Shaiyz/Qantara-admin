@@ -15,7 +15,7 @@ const TableUsers = ({
   rows,
   path,
   columns,
-  getAllProducts,
+  getAllUsers,
   getAllInactive,
   getAllActive,
   value,
@@ -73,7 +73,7 @@ const TableUsers = ({
                     className={styles.tab}
                     value={0}
                     label={`All ${header}`}
-                    onClick={() => getAllProducts()}
+                    onClick={() => getAllUsers()}
                   />
                   <Tab
                     className={styles.tab}
@@ -85,7 +85,7 @@ const TableUsers = ({
                     className={styles.tab}
                     value={2}
                     label="Inactive"
-                    onClick={() => getAllInactive()}
+                    onClick={() => getAllInactive("Inactive")}
                   />
                 </Tabs>
               }
@@ -94,7 +94,7 @@ const TableUsers = ({
               columns={columns}
               options={{
                 search: true,
-                pageSize: 100,
+                pageSize: 20,
                 pageSizeOptions: [5, 20, 50, 100],
                 paginationType: "stepped",
                 headerStyle: {

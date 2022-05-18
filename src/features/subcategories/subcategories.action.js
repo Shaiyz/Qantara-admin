@@ -82,6 +82,7 @@ export const updateSubCategory = (body, id) => async (dispatch) => {
     .then((response) => {
       dispatch(updateSubCategorySuccess(response.data.data));
       dispatch(setAlertMessage(response.data.message, "success"));
+      dispatch(getSubCategory(id));
       dispatch(getSubCategorys());
     })
     .catch((err) => {

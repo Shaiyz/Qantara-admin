@@ -1,6 +1,5 @@
 import { ChangePassword } from "../view";
 import { Login, codeLogin } from "../view/Login";
-// import {codeLogin}
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ForgotPassword from "../view/ForgotPassword";
 

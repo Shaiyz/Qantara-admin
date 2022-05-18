@@ -61,7 +61,7 @@ export const getUsersByRole = (role) => async (dispatch) => {
 export const getUsersByStatus = (role, status) => async (dispatch) => {
   dispatch(getLoadingLists());
   try {
-    const res = await backend.get(`/user?role=${role}&is_active=${status}`);
+    const res = await backend.get(`/user?role=${role}&isActive=${status}`);
     dispatch(getUsersListsSuccess(res.data.data));
   } catch (err) {
     if (err.response) {

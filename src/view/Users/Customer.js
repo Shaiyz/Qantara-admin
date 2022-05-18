@@ -118,6 +118,7 @@ const Customer = () => {
     //   render: renderActionButton,
     // },
   ];
+  console.log(users)
 
   let rows = [];
   if (users && users.length > 0) {
@@ -128,7 +129,7 @@ const Customer = () => {
         image: user?.profile_image,
         fullName: user.first_name + " " + user.last_name,
         mobileNumber: user?.phone,
-        status: user.is_active ? "Active" : "Inactive",
+        status: user.isActive ? "Active" : "Inactive",
         // action: user._id,
         createdAt: user.createdAt
           ? new Date(user.createdAt).toLocaleDateString()

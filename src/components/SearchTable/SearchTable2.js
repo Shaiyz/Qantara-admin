@@ -17,7 +17,7 @@ const Table = ({ data, columns, loading }) => {
                         columns={columns}
                         options={{
                             search: true,
-                            pageSize:100,
+                            pageSize:20,
                             pageSizeOptions:[5, 20, 50, 100],
                             paginationType:"stepped", 
                         }}

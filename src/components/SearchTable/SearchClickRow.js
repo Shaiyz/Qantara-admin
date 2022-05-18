@@ -12,7 +12,6 @@ const Table = ({ rows, columns, loading, header, path }) => {
   let history = useHistory();
 
   const redirect = (event, rowData) => {
-    console.log("worked");
     history.push(`/category-pricing/${rowData.action}`);
 
     // return <Redirect to={`/category-pricing/${rowData.action}`} />;
@@ -61,7 +60,7 @@ const Table = ({ rows, columns, loading, header, path }) => {
               sortable={false}
               // onRowClick={redirect}
               options={{
-                pageSize: 100,
+                pageSize: 20,
                 pageSizeOptions: [5, 20, 50, 100],
                 paginationType: "stepped",
                 search: true,

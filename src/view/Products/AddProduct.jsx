@@ -266,8 +266,8 @@ const AddProduct = () => {
               <Grid item xs={12} md={12} lg={12}>
                 <Select
                   value={
-                    productData?.subCategory && subcategories?.length
-                      ? subcategories.options.filter(
+                    productData?.subCategory
+                      ? subcategories?.options?.filter(
                           (x) => x.value === productData?.subCategory
                         )
                       : []

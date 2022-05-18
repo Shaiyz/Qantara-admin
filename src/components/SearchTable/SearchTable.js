@@ -48,7 +48,7 @@ const Table = ({ rows, columns, loading, header, path }) => {
               columns={columns}
               sortable={false}
               options={{
-                pageSize: 100,
+                pageSize: 20,
                 pageSizeOptions: [5, 20, 50, 100],
                 paginationType: "stepped",
                 search: true,

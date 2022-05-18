@@ -203,6 +203,11 @@ const EditProduct = () => {
     }
   };
 
+  // console.log(categories.filter((x) => x.value === productData?.category));
+  // console.log(
+  //   subcategories.options.filter((x) => x.value === productData?.subCategory)
+  // );
+
   return (
     <div className="mainForm">
       <div className={classes.root}>
@@ -309,7 +314,7 @@ const EditProduct = () => {
               <Grid item xs={12} md={12} lg={12}>
                 <Select
                   value={
-                    productData?.subCategory && subcategories?.length
+                    productData?.subCategory && subcategories.options
                       ? subcategories.options.filter(
                           (x) => x.value === productData?.subCategory
                         )

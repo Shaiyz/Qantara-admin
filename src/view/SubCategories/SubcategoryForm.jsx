@@ -23,9 +23,17 @@ import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
+const customStyles = {
+  menu: (provided, state) => ({
+    ...provided,
+    padding: 20,
+    fontWeight: "bold",
+  }),
+};
+
 const SubCategoryForm = () => {
   let dispatch = useDispatch();
-  const { saved, subcategory, loading } = useSelector(
+  const { saved, subcategorys, subcategory, loading } = useSelector(
     (state) => state.subCategories
   );
   const { categorys } = useSelector((state) => state.categories);
@@ -39,13 +47,7 @@ const SubCategoryForm = () => {
   const [errortype, seterrortype] = useState("");
   const [errorMessage, seteerrorMessage] = useState("");
   const [error, seterror] = useState(false);
-
-  function fetchMyAPI() {
-    dispatch(getSubCategory(id));
-  }
-  function fetchCategories() {
-    dispatch(getCategorys());
-  }
+  // const [subcategory, setSubCategory] = useState([]);
 
   useEffect(() => {
     fetchCategories();
@@ -55,7 +57,7 @@ const SubCategoryForm = () => {
   }, []);
 
   useEffect(() => {
-    if (id && subcategory.length > 0) {
+    if (subcategory.length > 0) {
       const category = {
         value: subcategory[0].category_name?._id,
         label: subcategory[0].category_name?.category_name,
@@ -64,6 +66,14 @@ const SubCategoryForm = () => {
       setcategory(category);
     }
   }, [subcategory]);
+
+  function fetchMyAPI() {
+    // setSubCategory(subcategorys.filter((i) => i._id === id));/
+    dispatch(getSubCategory(id));
+  }
+  function fetchCategories() {
+    dispatch(getCategorys());
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -121,17 +131,6 @@ const SubCategoryForm = () => {
     setcategory(_category);
   }
 
-  const customStyles = {
-    menu: (provided, state) => ({
-      ...provided,
-      padding: 20,
-      fontWeight: "bold",
-    }),
-  };
-
-  if (saved == true) {
-    <Redirect to="/subcategories"></Redirect>;
-  }
   return (
     <div className="mainForm">
       <div className={classes.root}>
@@ -149,6 +148,7 @@ const SubCategoryForm = () => {
                     id="outlined-uncontrolled"
                     variant="outlined"
                     value={name}
+                    type='text'
                     name={"name"}
                     label={"Name"}
                     placeholder={"Enter name"}
